@@ -1,0 +1,1276 @@
+#!/bin/bash
+touch testbench.csv
+
+./$1 test/ADDI_1
+CODE=$?
+echo -n "ADDI_1, ADDI, " > testbench.csv
+if [ "$CODE" == 15 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   Add 15 TO REGISTER V0" >> testbench.csv
+
+./$1 test/ADDI_2
+CODE=$?
+echo -n "ADDI_2, ADDI, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING OVERFLOW" >> testbench.csv
+
+./$1 test/ADDIU_1
+CODE=$?
+echo -n "ADDIU_1, ADDIU, " >> testbench.csv
+if [ "$CODE" == 15 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   Add 15 TO REGISTER V0" >> testbench.csv
+
+./$1 test/ADDIU_2
+CODE=$?
+echo -n "ADDIU_2, ADDIU, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING OVERFLOW" >> testbench.csv
+
+./$1 test/ANDI_1
+CODE=$?
+echo -n "ANDI_1, ANDI, " >> testbench.csv
+if [ "$CODE" == 15 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING AND" >> testbench.csv
+
+./$1 test/ANDI_2
+CODE=$?
+echo -n "ANDI_2, ANDI, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING AND WITH ZERO" >> testbench.csv
+
+./$1 test/ORI_1
+CODE=$?
+echo -n "ORI_1, ORI, " >> testbench.csv
+if [ "$CODE" == 15 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING OR" >> testbench.csv
+
+./$1 test/ORI_2
+CODE=$?
+echo -n "ORI_2, ORI, " >> testbench.csv
+if [ "$CODE" == 15 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING OR" >> testbench.csv
+
+./$1 test/XORI_1
+CODE=$?
+echo -n "XORI_1, XORI, " >> testbench.csv
+if [ "$CODE" == 254 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING XOR" >> testbench.csv
+
+./$1 test/XORI_2
+CODE=$?
+echo -n "XORI_2, XORI, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING XOR WITH ALL ONES" >> testbench.csv
+
+./$1 test/SLTI_1
+CODE=$?
+echo -n "SLTI_1, SLTI, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SLTI NORMALLY" >> testbench.csv
+
+./$1 test/SLTI_2
+CODE=$?
+echo -n "SLTI_2, SLTI, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SLTI WHEN NEGATIVES" >> testbench.csv
+
+./$1 test/SLTIU_1
+CODE=$?
+echo -n "SLTIU_1, SLTIU, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SLTIU NORMALLY" >> testbench.csv
+
+./$1 test/SLTIU_2
+CODE=$?
+echo -n "SLTIU_2, SLTIU, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SLTIU WITH NEGATIVES" >> testbench.csv
+
+./$1 test/BEQ_1
+CODE=$?
+echo -n "BEQ_1, BEQ, " >> testbench.csv
+if [ "$CODE" == 4 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BEQ NORMALLY" >> testbench.csv
+
+./$1 test/BEQ_2
+CODE=$?
+echo -n "BEQ_2, BEQ, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BEQ WHEN NOT EQUAL" >> testbench.csv
+
+./$1 test/SLTI_1
+CODE=$?
+echo -n "SLTI_1, SLTI, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SLTI NORMALLY" >> testbench.csv
+
+./$1 test/BNE_1
+CODE=$?
+echo -n "BNE_1, BNE, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BNE NORMALLY" >> testbench.csv
+
+./$1 test/BNE_2
+CODE=$?
+echo -n "BNE_2, BNE, " >> testbench.csv
+if [ "$CODE" == 4 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BNE WHEN EQUAL" >> testbench.csv
+
+./$1 test/LB_1
+CODE=$?
+echo -n "LB_1, LB, " >> testbench.csv
+if [ "$CODE" == 16 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LB NORMALLY" >> testbench.csv
+
+./$1 test/LB_2
+CODE=$?
+echo -n "LB_2, LB, " >> testbench.csv
+if [ "$CODE" == 255 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LB SIGN EXTENTION" >> testbench.csv
+
+./$1 test/LB_3
+CODE=$?
+echo -n "LB_3, LB, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "ns5618,  LB attempts to access illegal memory location" >> testbench.csv
+
+./$1 test/LBU_1
+CODE=$?
+echo -n "LBU_1, LBU, " >> testbench.csv
+if [ "$CODE" == 16 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LBU NORMALLY" >> testbench.csv
+
+./$1 test/LBU_2
+CODE=$?
+echo -n "LBU_2, LBU, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LB SIGN EXTENTION" >> testbench.csv
+
+./$1 test/LBU_3
+CODE=$?
+echo -n "LBU_3, LBU, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   LB attempts to access illegal memory location" >> testbench.csv
+
+./$1 test/LH_1
+CODE=$?
+echo -n "LH_1, LH, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LH NORMALLY" >> testbench.csv
+
+./$1 test/LH_2
+CODE=$?
+echo -n "LH_2, LH, " >> testbench.csv
+if [ "$CODE" == 255 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LH SIGN EXTENTION" >> testbench.csv
+
+./$1 test/LH_3
+CODE=$?
+echo -n "LH_3, LH, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LH RETURN AN ERROR" >> testbench.csv
+
+./$1 test/LHU_1
+CODE=$?
+echo -n "LHU_1, LHU, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LHU NORMALLY" >> testbench.csv
+
+./$1 test/LHU_2
+CODE=$?
+echo -n "LHU_2, LHU, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LHU SIGN EXTENTION" >> testbench.csv
+
+./$1 test/LHU_3
+CODE=$?
+echo -n "LHU_3, LHU, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LH RETURN AN ERROR" >> testbench.csv
+
+./$1 test/LW_1
+CODE=$?
+echo -n "LW_1, LW, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LW NORMALLY" >> testbench.csv
+
+./$1 test/LW_2
+CODE=$?
+echo -n "LW_2, LW, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LW RETURN AN ERROR" >> testbench.csv
+
+./$1 test/SB_1
+CODE=$?
+echo -n "SB_1, SB, " >> testbench.csv
+if [ "$CODE" == 16 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SB NORMALLY" >> testbench.csv
+
+./$1 test/SB_2
+CODE=$?
+echo -n "SB_2, SB, " >> testbench.csv
+if [ "$CODE" == 255 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SB SIGN EXTENTION" >> testbench.csv
+
+./$1 test/SB_3
+CODE=$?
+echo -n "SB_3, SB, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SB SHOULD RETURN AN ERROR" >> testbench.csv
+
+./$1 test/SH_1
+CODE=$?
+echo -n "SH_1, SH, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SH NORMALLY" >> testbench.csv
+
+./$1 test/SH_2
+CODE=$?
+echo -n "SH_2, SH, " >> testbench.csv
+if [ "$CODE" == 255 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SH SIGN EXTENTION" >> testbench.csv
+
+./$1 test/SH_3
+CODE=$?
+echo -n "SH_3, SH, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SH RETURN AN ERROR" >> testbench.csv
+
+./$1 test/SW_1
+CODE=$?
+echo -n "SW_1, SW, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   SW stores correct value in correct location" >> testbench.csv
+
+./$1 test/SW_2
+CODE=$?
+echo -n "SW_2, SW, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   SW attempts to write to illegal memory location" >> testbench.csv
+
+./$1 test/BGEZ_1
+CODE=$?
+echo -n "BGEZ_1, BGEZ, " >> testbench.csv
+if [ "$CODE" == 4 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGEZ TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/BGEZ_2
+CODE=$?
+echo -n "BGEZ_2, BGEZ, " >> testbench.csv
+if [ "$CODE" == 4 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGEZ TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/BGEZ_3
+CODE=$?
+echo -n "BGEZ_3, BGEZ, " >> testbench.csv
+if [ "$CODE" == 2 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGEZ DOESN'T TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/BGEZAL_1
+CODE=$?
+echo -n "BGEZAL_1, BGEZAL, " >> testbench.csv
+if [ "$CODE" == 4 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGEZAL TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/BGEZAL_2
+CODE=$?
+echo -n "BGEZAL_2, BGEZAL, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGEZAL DOESN'T TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/BLEZ_1
+CODE=$?
+echo -n "BLEZ_1, BLEZ, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGEZ DOESN'T TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/BLEZ_2
+CODE=$?
+echo -n "BLEZ_2, BLEZ, " >> testbench.csv
+if [ "$CODE" == 4 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGEZ TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/BLEZ_3
+CODE=$?
+echo -n "BLEZ_3, BLEZ, " >> testbench.csv
+if [ "$CODE" == 4 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGEZ TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/BLTZAL_1
+CODE=$?
+echo -n "BLTZAL_1, BLTZAL, " >> testbench.csv
+if [ "$CODE" == 4 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGEZAL DOESN'T TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/BLTZAL_2
+CODE=$?
+echo -n "BLTZAL_2, BLTZAL, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGEZAL TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/BGTZ_1
+CODE=$?
+echo -n "BGTZ_1, BGTZ, " >> testbench.csv
+if [ "$CODE" == 4 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGTZ TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/BGTZ_2
+CODE=$?
+echo -n "BGTZ_1, BGTZ, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGTZ DOESN'T TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/BGTZ_3
+CODE=$?
+echo -n "BGTZ_3, BGTZ, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BGTZ DOESN'T TAKES THE BRANCH" >> testbench.csv
+
+./$1 test/LUI_1
+CODE=$?
+echo -n "LUI_1, LUI, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LUI WORKS NORMALLY" >> testbench.csv
+
+./$1 test/LUI_2
+CODE=$?
+echo -n "LUI_2, LUI, " >> testbench.csv
+if [ "$CODE" == 17 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LUI WORKS NORMALLY" >> testbench.csv
+
+./$1 test/BLTZ_1
+CODE=$?
+echo -n "BLTZ_1, BLTZ, " >> testbench.csv
+if [ "$CODE" == 11 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BLTZ WORKS NORMALLY" >> testbench.csv
+
+./$1 test/BLTZ_2
+CODE=$?
+echo -n "BLTZ_2, BLTZ, " >> testbench.csv
+if [ "$CODE" == 117 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING BLTZ DOESN'T TAKE THE BRANCH" >> testbench.csv
+
+./$1 test/LWR_1
+CODE=$?
+echo -n "LWR_1, LWR, " >> testbench.csv
+if [ "$CODE" == 3 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LWR WORKS NORMALLY" >> testbench.csv
+
+./$1 test/LWR_2
+CODE=$?
+echo -n "LWR_2, LWR, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LWR CAN'T READ FROM PUT_CHAR" >> testbench.csv
+
+./$1 test/LWL_1
+CODE=$?
+echo -n "LWL_1, LWL, " >> testbench.csv
+if [ "$CODE" == 5 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LWL WORKS NORMALLY" >> testbench.csv
+
+./$1 test/LWL_2
+CODE=$?
+echo -n "LWL_2, LWL, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LWL CAN'T READ FROM PUT_CHAR" >> testbench.csv
+
+# # !/bin/bash
+
+./$1 test/ADD_1
+CODE=$?
+echo -n "ADD_1, ADD, " >> testbench.csv
+if [ "$CODE" == 3 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   Add 1 to 2" >> testbench.csv
+
+./$1 test/ADD_2
+CODE=$?
+echo -n "ADD_2, ADD, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,  Testing Overflow" >> testbench.csv
+
+./$1 test/ADD_3
+CODE=$?
+echo -n "ADD_3, ADD, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   Testing Overflow" >> testbench.csv
+
+./$1 test/ADD_4
+CODE=$?
+echo -n "ADD_4, ADD, " >> testbench.csv
+if [ "$CODE" == 253 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   Add -1 to -2" >> testbench.csv
+
+./$1 test/SUB_1
+CODE=$?
+echo -n "SUB_1, SUB, " >> testbench.csv
+if [ "$CODE" == 2 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   SUB 1 from 3" >> testbench.csv
+
+./$1 test/SUB_2
+CODE=$?
+echo -n "SUB_2, SUB, " >> testbench.csv
+if [ "$CODE" == 254 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   SUB 3 from 1" >> testbench.csv
+
+./$1 test/SUB_3
+CODE=$?
+echo -n "SUB_3, SUB, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   Testing Overflow" >> testbench.csv
+
+./$1 test/ADDU_1
+CODE=$?
+echo -n "ADDU_1, ADDU, " >> testbench.csv
+if [ "$CODE" == 4 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   Add 3 to 1" >> testbench.csv
+
+./$1 test/ADDU_2
+CODE=$?
+echo -n "ADDU_2, ADDU, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   Testing Overflow" >> testbench.csv
+
+./$1 test/ADDU_3
+CODE=$?
+echo -n "ADDU_3, ADDU, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   Testing if addition is unsigned" >> testbench.csv
+
+./$1 test/AND_1
+CODE=$?
+echo -n "AND_1, AND, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   testing AND with 5 and 1" >> testbench.csv
+
+./$1 test/AND_2
+CODE=$?
+echo -n "AND_2, AND, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   testing AND with 0" >> testbench.csv
+
+./$1 test/DIV_1
+CODE=$?
+echo -n "DIV_1, DIV, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   testing remainder when 5/2" >> testbench.csv
+
+./$1 test/DIV_2
+CODE=$?
+echo -n "DIV_2, DIV, " >> testbench.csv
+if [ "$CODE" == 2 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   testing quotient when 5/2" >> testbench.csv
+
+./$1 test/DIV_3
+CODE=$?
+echo -n "DIV_3, DIV, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   testing devide by zero" >> testbench.csv
+
+./$1 test/DIVU_1
+CODE=$?
+echo -n "DIVU_1, DIVU, " >> testbench.csv
+if [ "$CODE" == 49 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   dividing -10 by 5" >> testbench.csv
+
+./$1 test/DIVU_2
+CODE=$?
+echo -n "DIVU_2, DIVU, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   Testing unsigned division" >> testbench.csv
+
+./$1 test/DIVU_3
+CODE=$?
+echo -n "DIVU_3, DIVU, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   dividing by zero" >> testbench.csv
+
+./$1 test/MULT_1
+CODE=$?
+echo -n "MULT_1, MULT, " >> testbench.csv
+if [ "$CODE" == 10 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   MULTIPLYING 5 BY 2" >> testbench.csv
+
+./$1 test/MULT_2
+CODE=$?
+echo -n "MULT_2, MULT, " >> testbench.csv
+if [ "$CODE" == 251 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   MULTIPLYING 5 BY -1" >> testbench.csv
+
+./$1 test/MULT_3
+CODE=$?
+echo -n "MULT_3, MULT, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING HI REGISTERS WORKS IN MULTIPLICATION" >> testbench.csv
+#
+./$1 test/MULTU_1
+CODE=$?
+echo -n "MULTU_1, MULTU, " >> testbench.csv
+if [ "$CODE" == 254 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING UNSIGNED MULTIPLICATION FOR NO OVERFLOWS" >> testbench.csv
+
+./$1 test/MULTU_2
+CODE=$?
+echo -n "MULTU_2, MULTU, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING ANSWER ON HI REGISTER" >> testbench.csv
+
+./$1 test/MULTU_3
+CODE=$?
+echo -n "MULTU_3, MULTU, " >> testbench.csv
+if [ "$CODE" == 10 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING ON NORMAL CASE OF 5 TIMES 5" >> testbench.csv
+
+./$1 test/MFHI_1
+CODE=$?
+echo -n "MFHI_1, MFHI, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING HI REGISTERS WORKS IN MULTIPLICATION" >> testbench.csv
+
+./$1 test/MFLO_1
+CODE=$?
+echo -n "MFLO_1, MFLO, " >> testbench.csv
+if [ "$CODE" == 10 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING MOVE TO LO REGISTER" >> testbench.csv
+
+./$1 test/MTHI_1
+CODE=$?
+echo -n "MTHI_1, MTHI, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING MOVE TO HI REGISTER" >> testbench.csv
+
+./$1 test/MTLO_1
+CODE=$?
+echo -n "MTLO_1, MTLO, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING MOVE TO HI REGISTER" >> testbench.csv
+
+./$1 test/OR_1
+CODE=$?
+echo -n "OR_1, OR, " >> testbench.csv
+if [ "$CODE" == 255 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING OR" >> testbench.csv
+
+./$1 test/SLL_1
+CODE=$?
+echo -n "SLL_1, SLL, " >> testbench.csv
+if [ "$CODE" == 2 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LOGICAL SHIFT LEFT" >> testbench.csv
+
+./$1 test/SLL_2
+CODE=$?
+echo -n "SLL_2, SLL, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING ARITHMETIC ERROR" >> testbench.csv
+
+./$1 test/SLLV_1
+CODE=$?
+echo -n "SLLV_1, SLLV, " >> testbench.csv
+if [ "$CODE" == 2 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LOGICAL SHIFT LEFT WITH VARIABLES" >> testbench.csv
+
+./$1 test/SLLV_2
+CODE=$?
+echo -n "SLLV_2, SLLV, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING LOGICAL SHIFT LEFT WITH VARIABLES SHOULD BE ARITHMETIC ERROR" >> testbench.csv
+
+./$1 test/SRAV_1
+CODE=$?
+echo -n "SRAV_1, SRAV, " >> testbench.csv
+if [ "$CODE" == 255 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING RIGHT ARITHMETIC SHIFT WITH VARIABLES" >> testbench.csv
+
+./$1 test/SRAV_2
+CODE=$?
+echo -n "SRAV_2, SRAV, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING RIGHT ARITHMETIC SHIFT WITH VARIABLES SHOULD BE ARITHMETIC ERROR" >> testbench.csv
+
+./$1 test/SRA_1
+CODE=$?
+echo -n "SRA_1, SRA, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING RIGHT ARITHMETIC SHIFT" >> testbench.csv
+
+./$1 test/SRA_2
+CODE=$?
+echo -n "SRA_2, SRA, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING RIGHT ARITHMETIC SHIFT SHOULD BE ARITHMETIC ERROR" >> testbench.csv
+
+./$1 test/SRL_1
+CODE=$?
+echo -n "SRL_1, SRL, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING RIGHT LOGICAL SHIFT" >> testbench.csv
+
+./$1 test/SRL_2
+CODE=$?
+echo -n "SRL_2, SRL, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING RIGHT LOGICAL SHIFT TO MAKE SURE UNSIGNED" >> testbench.csv
+
+./$1 test/SRL_3
+CODE=$?
+echo -n "SRL_3, SRL, " >> testbench.csv
+if [ "$CODE" == 246 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   SHOULD BE DATA ERROR" >> testbench.csv
+
+./$1 test/SLT_1
+CODE=$?
+echo -n "SLT_1, SLT, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SET IF LESS THEN NORMALLY WORKS" >> testbench.csv
+
+./$1 test/SLT_2
+CODE=$?
+echo -n "SLT_2, SLT, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SET IF LESS THEN WORKS WHEN BOTH VALUES THE SAME" >> testbench.csv
+
+./$1 test/SLT_3
+CODE=$?
+echo -n "SLT_3, SLT, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SET IF LESS THEN NORMALLY WORKS WITH A MINUS NUMBER" >> testbench.csv
+
+./$1 test/SLTU_1
+CODE=$?
+echo -n "SLTU_1, SLTU, " >> testbench.csv
+if [ "$CODE" == 1 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SET IF LESS THEN NORMALLY WORKS" >> testbench.csv
+
+./$1 test/SLTU_2
+CODE=$?
+echo -n "SLTU_2, SLTU, " >> testbench.csv
+if [ "$CODE" == 0 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING SET IF LESS THEN UNSIGNED NORMALLY WORKS WITH A MINUS NUMBER" >> testbench.csv
+
+./$1 test/XOR_1
+CODE=$?
+echo -n "XOR_1, XOR, " >> testbench.csv
+if [ "$CODE" == 31 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING IF XOR WORKS" >> testbench.csv
+
+
+./$1 test/SKIP_NEXT
+CODE=$?
+echo -n "SKIP_NEXT, SKIPPING, " >> testbench.csv
+if [ "$CODE" == 16 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING IF DOES NEXT INSTRUCTION AFTER SKIP" >> testbench.csv
+
+./$1 test/JR_1
+CODE=$?
+echo -n "JR_1, JR, " >> testbench.csv
+if [ "$CODE" == 2 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING IF JR WORKS" >> testbench.csv
+
+./$1 test/JR_2
+CODE=$?
+echo -n "JR_2, JR, " >> testbench.csv
+if [ "$CODE" == 244 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING IF PC IS HIGHER THEN EXPECTED FOR JR" >> testbench.csv
+
+./$1 test/JALR_1
+CODE=$?
+echo -n "JALR_1, JALR, " >> testbench.csv
+if [ "$CODE" == 24 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING IF JALR WORKS" >> testbench.csv
+
+./$1 test/JALR_2
+CODE=$?
+echo -n "JALR_2, JALR, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING IF JALR RETURNS AN ERROR" >> testbench.csv
+
+
+./$1 test/J_1
+CODE=$?
+echo -n "j_1, J, " >> testbench.csv
+if [ "$CODE" == 2 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING J WORKS NORMALLY" >> testbench.csv
+
+./$1 test/J_2
+CODE=$?
+echo -n "J_2, J, " >> testbench.csv
+if [ "$CODE" == 4 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING J CARRIES OUT THE INSTRUCITON AFTER THE JUMP" >> testbench.csv
+
+./$1 test/JAL_1
+CODE=$?
+echo -n "JAL_1, JAL, " >> testbench.csv
+if [ "$CODE" == 9 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING JAL WORKS NORMALLY AND CARRIES OUT INSTRUCTION AFTER JUMP" >> testbench.csv
+
+./$1 test/JAL_2
+CODE=$?
+echo -n "JAL_2, JAL, " >> testbench.csv
+if [ "$CODE" == 244 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING JAL CAN'T JUMP TO NON-EXISTANT PLACE" >> testbench.csv
+
+./$1 test/TEST_GETC
+CODE=$?
+echo -n "TEST_GETC, TEST_GETC, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING CAN'T WRITE FROM GETC" >> testbench.csv
+
+./$1 test/TEST_PUTC
+CODE=$?
+echo -n "TEST_PUTC, TEST_PUTC, " >> testbench.csv
+if [ "$CODE" == 245 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING CAN'T WRITE FROM PUTC" >> testbench.csv
+
+./$1 test/LWL_3
+CODE=$?
+echo -n "LWL_3, LWL, " >> testbench.csv
+if [ "$CODE" == 5 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING ALL THE FUNCTIONALITY OF LWL" >> testbench.csv
+
+./$1 test/LWL_4
+CODE=$?
+echo -n "LWL_4, LWL, " >> testbench.csv
+if [ "$CODE" == 5 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING ALL THE FUNCTIONALITY OF LWL" >> testbench.csv
+
+./$1 test/LWL_5
+CODE=$?
+echo -n "LWL_5, LWL, " >> testbench.csv
+if [ "$CODE" == 5 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING ALL THE FUNCTIONALITY OF LWL" >> testbench.csv
+
+./$1 test/LWR_3
+CODE=$?
+echo -n "LWR_3, LWR, " >> testbench.csv
+if [ "$CODE" == 2 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING ALL THE FUNCTIONALITY OF LWR" >> testbench.csv
+
+./$1 test/LWR_4
+CODE=$?
+echo -n "LWR_4, LWR, " >> testbench.csv
+if [ "$CODE" == 4 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING ALL THE FUNCTIONALITY OF LWR" >> testbench.csv
+
+./$1 test/LWR_5
+CODE=$?
+echo -n "LWR_5, LWR, " >> testbench.csv
+if [ "$CODE" == 5 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "eh1618,   TESTING ALL THE FUNCTIONALITY OF LWR" >> testbench.csv
+
+./$1 test/PUTCHAR_1
+CODE=$?
+echo -n "PUTC_1, PUTC, " >> testbench.csv
+if [ "$CODE" == 78 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "ns5618,   checking putchar output" >> testbench.csv
+
+echo "blah" | ./$1 test/GETCHAR_1
+CODE=$?
+echo -n "GETCHAR_1, GETC, " >> testbench.csv
+if [ "$CODE" == 98 ]; then
+  echo -n "Pass, " >> testbench.csv
+else
+  echo -n "Fail, " >> testbench.csv
+fi
+echo "ns5618,   checking getchar output" >> testbench.csv
